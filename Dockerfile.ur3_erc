@@ -1,0 +1,27 @@
+FROM osrf/ros:noetic-desktop-full
+
+RUN apt-get update && apt-get upgrade -y && \
+	apt-get install -y lsb-core g++ git
+
+RUN rm /etc/ros/rosdep/sources.list.d/20-default.list && rosdep init && rosdep update
+
+#moveit
+RUN apt install ros-noetic-moveit -y
+
+#controller
+RUN apt install ros-noetic-ros-controllers* -y
+
+#create workspace
+RUN mkdir -p /catkin_ws/src
+
+#universal_robot packages for simulation
+RUN cd /catkin_ws/src && git clone https://github.com/PUT-UGV-Team/UR3_Simulation.git
+
+#universal_robot packages
+RUN cd /catkin_ws/src && git clone https://github.com/ros-industrial/universal_robot.git
+
+
+RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; cd /catkin_ws; catkin_make'
+
+RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+RUN echo "source /catkin_ws/devel/setup.bash" >> ~/.bashrc
