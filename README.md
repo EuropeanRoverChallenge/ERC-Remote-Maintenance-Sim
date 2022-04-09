@@ -74,7 +74,7 @@ To run UR3 simulation in Gazebo with MoveIt!, and RVzi GUI, including an example
 ```
 $ roslaunch ur3_sim simulation.launch 
 ```
-To run UR3 simulation in Gazebo with MoveIt!, and RVzi GUI, containing only a robot with a grapple and a camera (as per real setup):
+To run UR3 simulation in Gazebo with MoveIt!, and RVzi GUI, containing only a robot with a gripper and a camera (as per real setup):
 ```
 $ roslaunch ur3_sim real_station.launch 
 ```
