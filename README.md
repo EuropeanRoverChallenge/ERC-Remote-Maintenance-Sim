@@ -28,7 +28,7 @@ bash run_ur3_docker.bash
 ```
 To use an integrated AMD/Intel Graphics card, run:
 ```
-bash run_ur3_docker_AMD_Intel_GRaphics.bash
+bash run_ur3_docker_AMD_Intel_Graphics.bash
 ```
 To use an Nvidia card, you need to previously install proprietary drivers and Nvidia Container Toolkit (https://github.com/NVIDIA/nvidia-docker). Next execute command:
 ``` 
