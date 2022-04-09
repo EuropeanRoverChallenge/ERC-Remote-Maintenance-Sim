@@ -70,11 +70,11 @@ catkin_make
 source devel/setup.bash
 ```
 ## Run simulation
-To run UR3 simulation in Gazebo with MoveIt!, and RVzi GUI, including an example cell:
+To run UR3 simulation in Gazebo with MoveIt! and RVzi GUI, including an example cell:
 ```
 $ roslaunch ur3_sim simulation.launch 
 ```
-To run UR3 simulation in Gazebo with MoveIt!, and RVzi GUI, containing only a robot with a gripper and a camera (as per real setup):
+To run UR3 simulation in Gazebo with MoveIt! and RVzi GUI, containing only robot with gripper and camera:
 ```
 $ roslaunch ur3_sim real_station.launch 
 ```
