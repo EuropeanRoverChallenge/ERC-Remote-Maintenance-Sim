@@ -94,7 +94,7 @@ The gripper is controlled by publishing appropriate commands on topic /gripper c
 - semi_open (for catching the IMU box)
 - semi_close (for catching the lid of the box)
 - close
-- 
+
 ### Camera
 The simulation includes a camera placed on a gripper that detects aruco tags and other items. 
 The following topics are published:
