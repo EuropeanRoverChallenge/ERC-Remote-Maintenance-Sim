@@ -2,7 +2,7 @@
 
 This repository contains simulations of the Universal Robots UR3 robot created for the ERC competition. You can use docker with all requirements installed  ([Using Docker](#using-docker) section) or try to install them natively ([Install on the host system](#install-on-the-host-system) section).
 
-The simulation uses the [ROS-Industrial Universal Robot repository](https://github.com/ros-industrial/universal_robot). The following items have been added to the simulation: robot cell, table surface with marked areas, four button modules with ID 1 - 4 (in a pressed down state, not movable), inspection window along with its cover, the IMU module and gripper with camera. The files necessary for motion planning have also been modified to take into account the added elements. All changed and added files are located in the UR3_sim repository. You can run the simulation with an example cell or only with a robot, gripper and camera.
+The simulation uses the [ROS-Industrial Universal Robot repository](https://github.com/ros-industrial/universal_robot) and [roboticsgroup_gazebo_plugins](https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins). The following items have been added to the simulation: robot cell, table surface with marked areas, four button modules with ID 1 - 4 (in a pressed down state, not movable), inspection window along with its cover, the IMU module and gripper with camera. The files necessary for motion planning have also been modified to take into account the added elements. All changed and added files are located in the UR3_sim repository. You can run the simulation with an example cell or only with a robot, gripper and camera.
 
 ## Using Docker
 
