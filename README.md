@@ -45,13 +45,6 @@ Then, you can run command in running container:
 docker exec -it ur3_simulation_erc /bin/bash
 ```
 
-Now you can run commands below in docker container.
-
-UR3 simulation in Gazebo with MoveIt! and RViz GUI:
-Simulation in Gazebo:
-```
-roslaunch ur3_sim simulation.launch 
-```
 ## Install on the host system
 
 ### Requirements
@@ -76,7 +69,7 @@ cd /catkin_ws
 catkin_make
 source devel/setup.bash
 ```
-### Run simulation
+## Run simulation
 To run UR3 simulation in Gazebo with MoveIt!, and RVzi GUI, including an example cell:
 ```
 $ roslaunch ur3_sim simulation.launch 
