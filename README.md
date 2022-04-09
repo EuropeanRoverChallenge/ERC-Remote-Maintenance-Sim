@@ -60,19 +60,37 @@ For the simulation to work properly, you must install dependencies and download 
 ``` 
 source /opt/ros/noetic/setup.bash
 sudo apt-get update && apt-get upgrade -y && apt-get install -y lsb-core g++
+sudo apt-get install git
 rosdep init && rosdep update
 sudo apt install ros-noetic-moveit -y
 sudo apt install ros-noetic-ros-controllers* -y
 mkdir -p /catkin_ws/src
-cd /catkin_ws/src && git clone https://github.com/PUT-UGV-Team/UR3_Simulation.git
+cd /catkin_ws/src
 git clone https://github.com/ros-industrial/universal_robot.git
+sudo rm -r universal_robot/ur_msgs
+git clone https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins
+git clone https://github.com/Michal-Bidzinski/UR3_sim.git
 cd /catkin_ws
 catkin_make
-source /catkin_ws/devel/setup.bash
+source devel/setup.bash
 ```
 ### Run simulation
-UR3 simulation in Gazebo with MoveIt! and RViz GUI:
-Simulation in Gazebo:
+To run UR3 simulation in Gazebo with MoveIt!, and RVzi GUI, including an example cell:
 ```
 $ roslaunch ur3_sim simulation.launch 
 ```
+To run UR3 simulation in Gazebo with MoveIt!, and RVzi GUI, containing only a robot with a grapple and a camera (as per real setup):
+```
+$ roslaunch ur3_sim real_station.launch 
+```
+
+### Control the robot
+To control the arm can by used MoveIt!. Planning robot movement can be performed using for example the Move Group Interface. Tutorials written in [Python](https://github.com/ros-planning/moveit_tutorials/blob/master/doc/move_group_python_interface/scripts/move_group_python_interface_tutorial.py) and [C++](https://github.com/ros-planning/moveit_tutorials/blob/master/doc/move_group_interface/src/move_group_interface_tutorial.cpp) can be a hint (note the robot group name and number of joints).
+
+
+### Control the gripper
+The gripper is controlled by publishing appropriate commands on topic /gripper command. Message type: std msgs/String. To control the gripper, send the one of following commands:
+- open
+- semi_open (for catching the IMU box)
+- semi_close (for catching the lid of the box)
+- close
