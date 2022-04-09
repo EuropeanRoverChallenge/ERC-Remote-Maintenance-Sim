@@ -5,6 +5,9 @@ RUN apt-get update && apt-get upgrade -y && \
 
 RUN rm /etc/ros/rosdep/sources.list.d/20-default.list && rosdep init && rosdep update
 
+#git
+RUN apt-get install git
+
 #moveit
 RUN apt install ros-noetic-moveit -y
 
@@ -15,10 +18,14 @@ RUN apt install ros-noetic-ros-controllers* -y
 RUN mkdir -p /catkin_ws/src
 
 #universal_robot packages for simulation
-RUN cd /catkin_ws/src && git clone https://github.com/PUT-UGV-Team/UR3_Simulation.git
-
-#universal_robot packages
 RUN cd /catkin_ws/src && git clone https://github.com/ros-industrial/universal_robot.git
+RUN rm -r /catkin_ws/src/universal_robot/ur_msgs
+
+#roboticsgroup_gazebo_plugins
+RUN cd /catkin_ws/src && git clone https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins
+
+#ur3_sim
+RUN cd /catkin_ws/src && git clone https://github.com/Michal-Bidzinski/UR3_sim.git
 
 
 RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; cd /catkin_ws; catkin_make'
