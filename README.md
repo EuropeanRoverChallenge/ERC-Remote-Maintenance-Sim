@@ -2,7 +2,7 @@
 
 This repository contains simulations of the Universal Robots UR3 robot created for the ERC competition. You can use docker with all requirements installed  ([Using Docker](#using-docker) section) or try to install them natively ([Install on the host system](#install-on-the-host-system) section).
 
-The simulation uses the [ROS-Industrial Universal Robot repository](https://github.com/ros-industrial/universal_robot). A table has been added to an existing simulation. The UR3_Simulation repository contains a modified urdf, srdf and roslaunch files that take the table into account when planning the movement.
+The simulation uses the [ROS-Industrial Universal Robot repository](https://github.com/ros-industrial/universal_robot). The following items have been added to the simulation: robot cell, table surface with marked areas, four button modules with ID 1 - 4 (in a pressed down state, not movable), inspection window along with its cover, the IMU module and gripper with camera. The files necessary for motion planning have also been modified to take into account the added elements. All changed and added files are located in the UR3_sim repository. You can run the simulation with an example cell or only with a robot, gripper and camera.
 
 ## Using Docker
 
@@ -94,3 +94,21 @@ The gripper is controlled by publishing appropriate commands on topic /gripper c
 - semi_open (for catching the IMU box)
 - semi_close (for catching the lid of the box)
 - close
+- 
+### Camera
+The simulation includes a camera placed on a gripper that detects aruco tags and other items. 
+The following topics are published:
+- /camera\_image/camera\_info
+- /camera\_image/image\_raw
+- /camera\_image/image\_raw/compressed
+- /camera\_image/image\_raw/compressed/parameter\_descriptions
+- /camera\_image/image\_raw/compressed/parameter\_updates
+- /camera\_image/image\_raw/compressedDepth
+- /camera\_image/image\_raw/compressedDepth/parameter\_descriptions
+- /camera\_image/image\_raw/compressedDepth/parameter\_updates
+- /camera\_image/image\_raw/theora
+- /camera\_image/image\_raw/theora/parameter\_descriptions
+- /camera\_image/image\_raw/theora/parameter\_updates
+
+Although the topics with the word Depth in the name are published by defalut ros node,
+these cameras do not capture any depth data.
