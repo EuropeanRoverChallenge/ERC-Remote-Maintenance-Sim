@@ -18,11 +18,11 @@ RUN apt install ros-noetic-ros-controllers* -y
 RUN mkdir -p /catkin_ws/src
 
 #universal_robot packages for simulation
-RUN cd /catkin_ws/src && git clone https://github.com/ros-industrial/universal_robot.git
+RUN cd /catkin_ws/src && git clone  -b kinetic-devel https://github.com/ros-industrial/universal_robot.git
 RUN rm -r /catkin_ws/src/universal_robot/ur_msgs
 
 #roboticsgroup_gazebo_plugins
-RUN cd /catkin_ws/src && git clone https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins
+RUN cd /catkin_ws/src && git clone https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins 
 
 #ur3_sim
 RUN cd /catkin_ws/src && git clone https://github.com/Michal-Bidzinski/UR3_sim.git
