@@ -64,7 +64,7 @@ sudo apt install ros-noetic-moveit -y
 sudo apt install ros-noetic-ros-controllers* -y
 mkdir -p /catkin_ws/src
 cd /catkin_ws/src
-git clone https://github.com/ros-industrial/universal_robot.git
+git clone -b kinetic-devel https://github.com/ros-industrial/universal_robot.git
 sudo rm -r universal_robot/ur_msgs
 git clone https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins
 git clone https://github.com/Michal-Bidzinski/UR3_sim.git
